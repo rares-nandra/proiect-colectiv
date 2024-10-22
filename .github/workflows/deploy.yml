@@ -1,0 +1,35 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Install SSH client
+      - name: Install SSH client
+        run: sudo apt-get install openssh-client -y
+
+      # Add the SSH key to the SSH agent
+      - name: Add SSH Key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+
+      # SSH into EC2 and run Docker Compose
+      - name: SSH and deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_INSTANCE_DOMAIN }} -p 22 << 'EOF'
+            cd proiect-colectiv
+            git pull origin main
+            docker-compose down
+            docker-compose up -d --build
+          EOF
