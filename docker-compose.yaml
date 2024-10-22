@@ -25,15 +25,12 @@ services:
     build: ./frontend
     container_name: react_frontend
     restart: always
-    expose:
-      - "3000"
     depends_on:
       - backend
     volumes:
       - ./frontend:/app
     environment:
       - NODE_ENV=production
-    command: ["npm", "run", "build"]
 
   nginx:
     image: nginx:latest
