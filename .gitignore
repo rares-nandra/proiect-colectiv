@@ -1,0 +1,35 @@
+# Node.js
+/frontend/node_modules
+/frontend/build
+/frontend/.env
+
+# Python
+/backend/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+/backend/venv/
+.backend_env/
+instance/
+.pytest_cache/
+
+# Environment variables
+*.env
+
+# Docker
+*.log
+docker-compose.override.yml
+docker-compose.override.yaml
+.dockerignore
+
+# MongoDB
+mongo_data/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
