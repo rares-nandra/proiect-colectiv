@@ -23,7 +23,6 @@ services:
     build: ./frontend
     container_name: react_frontend
     restart: "no"
-    restart: always
     depends_on:
       - backend
     environment:
