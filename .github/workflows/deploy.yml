@@ -27,7 +27,7 @@ jobs:
       # SSH into EC2 and run Docker Compose
       - name: SSH and deploy
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} -p ${{ secrets.EC2_PORT }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_INSTANCE_DOMAIN }} -p 22 << 'EOF'
             cd proiect-colectiv
             git pull origin main
             docker-compose down
