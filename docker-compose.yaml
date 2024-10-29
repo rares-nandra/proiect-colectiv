@@ -28,6 +28,9 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: react-frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
     ports:
       - "3000:3000"
     restart: always
