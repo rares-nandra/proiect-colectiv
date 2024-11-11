@@ -1,0 +1,13 @@
+:root{
+    --background-primary: rgb(231, 231, 231)
+    --background-secondary: rgb(218, 218, 218)
+    --background-accent: rgb(37, 80, 47)
+
+    --background-primary-hover: rgb(182, 182, 182)
+    --background-secondary-hover: rgb(224, 224, 224)
+
+    --text-primary: rgb(27, 25, 25)
+    --text-secondary: rgb(27, 25, 25)
+    --text-alert: rgb(180, 5, 40)
+    --text-accent: rgb(248, 244, 244)
+    }
