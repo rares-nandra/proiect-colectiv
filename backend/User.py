@@ -3,17 +3,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 import datetime
 from functools import wraps
-import os
-from Mongodb import MongoDB  # Importăm clasa MongoDB
 
 user_bp = Blueprint('user', __name__)
 SECRET_KEY = "njcplmsps"
 
-@user_bp.before_app_first_request
-def init_db():
-    current_app.mongo = MongoDB(current_app, db_name='mydatabase')  # Setăm baza de date
-
 def get_user_collection():
+    # Access the MongoDB instance via `current_app`
     return current_app.mongo.get_collection('users')
 
 @user_bp.route('/register', methods=['POST'])

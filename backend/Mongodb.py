@@ -1,15 +1,48 @@
-from flask_pymongo import PyMongo
-from pymongo.collection import Collection
-from pymongo.database import Database
-from flask import Flask
+from pymongo import MongoClient
+from bson.objectid import ObjectId
+import os
 
 class MongoDB:
-    def __init__(self, app: Flask, db_name: str):
-        self.mongo = PyMongo(app)
-        self.db_name = db_name
+    def __init__(self, db_name, collection_name, uri=None):
+        self.uri = uri or os.getenv("MONGO_URI", "mongodb://localhost:27017")
+        self.client = MongoClient(self.uri)
+        self.db = self.client[db_name]
+        self.collection = self.db[collection_name]
 
-    def get_database(self) -> Database:
-        return self.mongo.cx[self.db_name]
+    def _convert_objectid(self, doc):
+        """Convert ObjectId fields to strings in a MongoDB document."""
+        if '_id' in doc:
+            doc['_id'] = str(doc['_id'])
+        return doc
 
-    def get_collection(self, collection_name: str) -> Collection:
-        return self.get_database()[collection_name]
+    def find_all(self):
+        """Retrieve all documents and convert ObjectId fields."""
+        documents = self.collection.find({})
+        return [self._convert_objectid(doc) for doc in documents]
+
+    def find_one(self, query):
+        """Find a single document and convert ObjectId fields."""
+        document = self.collection.find_one(query)
+        return self._convert_objectid(document) if document else None
+
+    def find_by_id(self, document_id):
+        """Retrieve a document by its ObjectId and convert ObjectId fields."""
+        document = self.collection.find_one({"_id": ObjectId(document_id)})
+        return self._convert_objectid(document) if document else None
+
+    def insert_one(self, document):
+        """Insert a single document into the collection."""
+        return self.collection.insert_one(document).inserted_id
+
+    def update_one(self, query, update_values):
+        """Update a single document in the collection."""
+        return self.collection.update_one(query, {"$set": update_values}).modified_count
+
+    def delete_one(self, query):
+        """Delete a single document from the collection."""
+        return self.collection.delete_one(query).deleted_count
+
+    def find_by_field(self, field, value):
+        """Retrieve documents based on a field-value match."""
+        return list(self.collection.find({field: value}))
+
