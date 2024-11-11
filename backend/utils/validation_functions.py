@@ -1,7 +1,7 @@
 import re
 
 def validate_email(email):
-    pattern = pattern = r'^[\w\.-]+@[\w\.-]+\.\w{2,4}$'
+    pattern = r'^[\w\.-]+@[\w\.-]+\.\w{2,4}$'
     return re.match(pattern, email) is not None
 
 def validate_password(password):
@@ -22,12 +22,6 @@ def validate_phone_number(phone_number):
     pattern = r'^0\d{9}$'
     return re.match(pattern, phone_number) is not None
 
-signup = {
-    'username': 'caca',
-    'email': 'uga@buga.com',
-    'password': 'Valivijelie1',
-    'phone_number': '0728114330'
-}
 
 def validate_signup(data):
     return(
@@ -36,17 +30,12 @@ def validate_signup(data):
         validate_password(data['password']) and
         validate_phone_number(data['phone_number'])
     )
-login = {
-    'email': 'ciupacabra@ubb.com',
-    'password': 'Grawpowpow9'
-}
 
 def validate_login(data):
     return (
         validate_email(data['email']) and
         validate_password(data['password'])
     )
-print("Sign-up", validate_signup(signup))
-print("Login", validate_login(login))
+
 
 
