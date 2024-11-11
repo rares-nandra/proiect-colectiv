@@ -1,14 +1,20 @@
-from flask import Blueprint, request, jsonify
-from flask_pymongo import PyMongo
+from flask import Blueprint, request, jsonify, current_app
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 import datetime
 from functools import wraps
 import os
+from Mongodb import MongoDB  # Importăm clasa MongoDB
 
 user_bp = Blueprint('user', __name__)
-mongo = PyMongo()
-SECRET_KEY = "njcplmsps"  
+SECRET_KEY = "njcplmsps"
+
+@user_bp.before_app_first_request
+def init_db():
+    current_app.mongo = MongoDB(current_app, db_name='mydatabase')  # Setăm baza de date
+
+def get_user_collection():
+    return current_app.mongo.get_collection('users')
 
 @user_bp.route('/register', methods=['POST'])
 def register():
@@ -17,9 +23,8 @@ def register():
     email = data.get('email')
     password = data.get('password')
 
-    # Hashing parola
     hashed_password = generate_password_hash(password, method='sha256')
-    
+
     new_user = {
         'username': username,
         'email': email,
@@ -27,7 +32,7 @@ def register():
         'created_at': datetime.datetime.utcnow()
     }
 
-    mongo.db.users.insert_one(new_user)
+    get_user_collection().insert_one(new_user)
     return jsonify({'message': 'User registered successfully'}), 201
 
 @user_bp.route('/login', methods=['POST'])
@@ -36,10 +41,10 @@ def login():
     email = data.get('email')
     password = data.get('password')
 
-    user = mongo.db.users.find_one({'email': email})
+    user = get_user_collection().find_one({'email': email})
     if not user or not check_password_hash(user['password'], password):
         return jsonify({'error': 'Invalid email or password'}), 401
-    #token
+
     token = jwt.encode(
         {'user_id': str(user['_id']), 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)},
         SECRET_KEY,
@@ -56,7 +61,7 @@ def token_required(f):
 
         try:
             data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-            current_user = mongo.db.users.find_one({'_id': data['user_id']})
+            current_user = get_user_collection().find_one({'_id': data['user_id']})
         except:
             return jsonify({'error': 'Token is invalid or expired'}), 403
 
