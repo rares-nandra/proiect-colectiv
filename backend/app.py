@@ -2,9 +2,8 @@
 
 from flask import Flask, jsonify
 from flask_cors import CORS
-from Mongodb import MongoDB  # Import MongoDB class
-from User import user_bp  # Import user blueprint
-from Product import products_bp  # Import the products Blueprint
+from backend.Collections.User import user_bp  # Import user blueprint
+from backend.Collections.Product import products_bp  # Import the products Blueprint
 
 def create_app():
     # Initialize Flask app
