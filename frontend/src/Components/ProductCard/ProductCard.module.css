@@ -1,0 +1,80 @@
+.container
+{
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    animation: transform 0.2s;
+}
+
+.container:hover
+{
+    transform: scale(1.02);
+}
+
+.percentage
+{
+    position: absolute;
+    display: inline-block;
+    top: -5px;
+    right: 10px;
+    user-select: none;
+}
+
+.percentageText
+{
+    font-size: 15px;
+}
+
+.image
+{
+    margin-top: 25px;
+    width: calc(100% - 20px);
+    background-size: contain;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 50%;
+}
+
+.infoContainer
+{
+    width: calc(100% - 20px);
+    height: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.name
+{
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.descriptionContainer
+{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description
+{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.price
+{
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+}
