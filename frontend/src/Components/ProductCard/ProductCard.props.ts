@@ -6,11 +6,14 @@ export interface ProductCardProps {
     price: number;
     category: string;
     matchPercentage: number;
+    keywords: Array<string>;
     customizations?: {
         width?: string;
         height?: string;
         backgroundColor?: string;
+        backgroundColorTags?: string;
         foregroundColor?: string;
         accentColor?: string;
+        shadow?: string;
     };
 }

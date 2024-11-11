@@ -58,8 +58,8 @@
 
 .descriptionContainer
 {
-    height: 100%;
     display: flex;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
@@ -70,6 +70,26 @@
     padding: 0;
     font-size: 12px;
     overflow: hidden;
+}
+
+.tagsContainer
+{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.tagContainer
+{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.tag
+{
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
 }
 
 .price
