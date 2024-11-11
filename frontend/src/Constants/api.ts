@@ -1,0 +1,1 @@
+export const domain = window.location.hostname === "http://localhost:5000"
