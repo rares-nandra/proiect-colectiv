@@ -1,6 +1,6 @@
 import bson
 from flask import Blueprint, jsonify
-from Mongodb import MongoDB  # Import the MongoDB class
+from backend.utils.Mongodb import MongoDB  # Import the MongoDB class
 
 # Initialize the Blueprint for products
 products_bp = Blueprint('products', __name__)
