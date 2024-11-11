@@ -1,5 +1,3 @@
-# app.py
-
 from flask import Flask, jsonify
 from flask_cors import CORS
 from backend.Collections.User import user_bp  # Import user blueprint
