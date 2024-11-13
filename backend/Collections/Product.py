@@ -8,7 +8,6 @@ products_bp = Blueprint('products', __name__)
 # Initialize MongoDB connection with the "products" collection
 mongo = MongoDB(db_name="mydatabase", collection_name="Products")
 
-
 @products_bp.route('/products', methods=['GET'])
 def get_all_products():
     """Retrieve all products from the products collection."""
