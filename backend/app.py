@@ -9,7 +9,7 @@ def create_app():
 
     # Set up CORS to allow requests from localhost:3000
     CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
-
+    print(1)
     # Register blueprints
     app.register_blueprint(user_bp, url_prefix='/auth')
     app.register_blueprint(products_bp)
