@@ -14,7 +14,7 @@
     width: calc(100% - 100px);
     display: flex;
     flex-wrap: wrap;
-    gap: 50px 0px;
-    justify-content: space-between;
+    gap: 50px 20px;
+    justify-content: space-around;
     align-items: start;
 }

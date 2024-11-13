@@ -5,6 +5,7 @@ export interface ProductCardProps {
     imageUrl: string;
     price: number;
     category: string;
+    additional: any;
     matchPercentage: number;
     keywords: Array<string>;
     customizations?: {
