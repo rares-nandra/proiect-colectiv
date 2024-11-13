@@ -6,7 +6,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 0px;
+    row-gap: 100px;
+    padding: 20px 0px 100px 0px;
+}
+
+.headerContainer
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo
+{
+    width: 200px;
 }
 
 .productsContainer
@@ -14,7 +28,7 @@
     width: calc(100% - 100px);
     display: flex;
     flex-wrap: wrap;
-    gap: 50px 20px;
+    gap: 65px 25px;
     justify-content: space-around;
     align-items: start;
 }

@@ -32,17 +32,20 @@ def calculate_product_match(user_keywords, product_keywords):
         return 0
 
     user_keywords = [x.lower() for x in user_keywords]
-    product_keywords = [x.lower() for x in product_keywords]
+    product_keywords = [{"name": x.lower(), "match": False} for x in product_keywords]
 
     matches = 0
+    for keyword in product_keywords:
+        if keyword["name"] in user_keywords:
+            keyword["match"] = True
+            matches += 1
 
-    for keyword in user_keywords:
-        if keyword in product_keywords:
-            matches = matches + 1
-
-    return round((matches / len(product_keywords)) * 100)
+    match_percentage = round((matches / len(product_keywords)) * 100)
+    return match_percentage, product_keywords
 
 def sort_by_match(products):
     for product in products:
-        product['matchPercentage'] = calculate_product_match(DEMO_ONLY_KEYWORDS, product['keywords'])
+        match_percentage, updated_keywords = calculate_product_match(DEMO_ONLY_KEYWORDS, product['keywords'])
+        product['matchPercentage'] = match_percentage
+        product['keywords'] = updated_keywords
     return sorted(products, key=lambda x: x['matchPercentage'], reverse=True)

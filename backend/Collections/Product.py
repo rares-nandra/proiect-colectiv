@@ -2,8 +2,8 @@ from json import dumps
 from bson.json_util import dumps
 import bson
 from flask import Blueprint, jsonify, request
-from backend.utils.Mongodb import MongoDB  # Import the MongoDB class
-from backend.utils import product_user_match
+from utils.Mongodb import MongoDB  # Import the MongoDB class
+from utils import product_user_match
 
 # Initialize the Blueprint for products
 products_bp = Blueprint('products', __name__)

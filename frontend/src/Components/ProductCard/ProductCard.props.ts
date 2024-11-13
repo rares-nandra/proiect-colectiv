@@ -1,5 +1,7 @@
 export interface ProductCardProps {
     onClick: () => void;
+    onClickCart: () => void;
+    onClickHeart: () => void;
     name: string;
     description: string;
     imageUrl: string;
@@ -7,14 +9,15 @@ export interface ProductCardProps {
     category: string;
     additional: any;
     matchPercentage: number;
-    keywords: Array<string>;
+    keywords: Array<{ name: string; match: boolean }>;
     customizations?: {
         width?: string;
         height?: string;
-        backgroundColor?: string;
+        background?: string;
         backgroundColorTags?: string;
         foregroundColor?: string;
-        accentColor?: string;
+        backgroundAccent?: string;
+        foregroundAccent?: string;
         shadow?: string;
     };
 }

@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-from backend.Collections.User import user_bp  # Import user blueprint
-from backend.Collections.Product import products_bp  # Import the products Blueprint
+from Collections.User import user_bp  # Import user blueprint
+from Collections.Product import products_bp  # Import the products Blueprint
 
 def create_app():
     # Initialize Flask app
@@ -28,5 +28,5 @@ def create_app():
 # Run the app if this file is executed directly
 if __name__ == '__main__':
     app = create_app()
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=5000)
 

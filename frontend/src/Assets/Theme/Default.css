@@ -1,16 +1,16 @@
 :root{
-    --background-primary: rgb(231, 231, 231);
-    --background-secondary: rgb(218, 218, 218);
-    --background-tertiary: rgb(179, 179, 179);
-    --background-accent: rgb(37, 80, 47);
+    --background-primary: rgb(18, 18, 18);
+    --background-secondary: rgb(34, 34, 34);
+    --background-tertiary: rgb(56, 56, 56);
+    --background-accent: rgb(105, 181, 139);
 
-    --background-primary-hover: rgb(182, 182, 182);
+    --background-primary-hover: rgb(214, 214, 214);
     --background-secondary-hover: rgb(224, 224, 224);
 
-    --text-primary: rgb(27, 25, 25);
+    --text-primary: rgb(198, 198, 198);
     --text-secondary: rgb(27, 25, 25);
     --text-alert: rgb(180, 5, 40);
     --text-accent: rgb(248, 244, 244);
 
-    --shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    --shadow: rgb(0, 0, 0) 0px 3px 6px, rgb(0, 0, 0) 0px 3px 6px;
 }
