@@ -44,5 +44,11 @@ class MongoDB:
 
     def find_by_field(self, field, value):
         """Retrieve documents based on a field-value match."""
-        return list(self.collection.find({field: value}))
+        result = list(self.collection.find({field: value}))
+        return [self._convert_objectid(doc) for doc in result]
+
+    def find(self, value):
+        """Retrieve documents based on a field-value match."""
+        result = list(self.collection.find(value))
+        return [self._convert_objectid(doc) for doc in result]
 
