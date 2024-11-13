@@ -28,7 +28,6 @@ def get_all_products():
 
     return jsonify(product_user_match.sort_by_match(products)), 200
 
-#search_products?min_price=60&max_price=70
 @products_bp.route('/products/category/<category>', methods=['GET'])
 def get_products_by_genre(category):
     products = mongo.find_by_field("category", category)
