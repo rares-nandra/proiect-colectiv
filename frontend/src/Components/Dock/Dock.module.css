@@ -1,0 +1,53 @@
+.outerContainer
+{
+    z-index: 99;
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container
+{
+    max-width: 90vw;
+    padding: 0px 30px;
+
+    background: rgba(110, 110, 110, 0.434);
+    box-shadow: 1px 10px 38px 4px rgb(0, 0, 0);
+    backdrop-filter: blur( 12.5px );
+    -webkit-backdrop-filter: blur( 12.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 60px;
+}
+
+.element
+{
+    padding: 14px 0px;
+}
+
+.elementIcon
+{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .elementIcon
+    {
+        font-size: 24px;
+    }
+
+    .container
+    {
+        column-gap: 40px;
+    }
+}

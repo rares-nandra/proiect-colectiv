@@ -1,13 +1,13 @@
 :root{
     --background-primary: rgb(18, 18, 18);
     --background-secondary: rgb(34, 34, 34);
-    --background-tertiary: rgb(56, 56, 56);
+    --background-tertiary: rgb(48, 48, 48);
     --background-accent: rgb(105, 181, 139);
 
     --background-primary-hover: rgb(214, 214, 214);
     --background-secondary-hover: rgb(224, 224, 224);
 
-    --text-primary: rgb(198, 198, 198);
+    --text-primary: rgb(186, 186, 186);
     --text-secondary: rgb(27, 25, 25);
     --text-alert: rgb(180, 5, 40);
     --text-accent: rgb(248, 244, 244);

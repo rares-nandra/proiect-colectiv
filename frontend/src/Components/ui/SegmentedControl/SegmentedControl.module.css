@@ -1,0 +1,118 @@
+.container
+{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container > .containerSelection:first-child
+{
+    border-radius: 8px 0px 0px 8px;
+}
+
+.container > .containerSelection:last-child
+{
+    border-radius: 0px 8px 8px 0px;
+}
+
+.container > .containerSelection:only-child 
+{
+    border-radius: 8px;
+}
+
+.containerSelection
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 8px;
+    cursor: pointer;
+}
+
+.containerSelectionActive
+{
+    cursor: default;
+}
+
+.selectionText
+{
+    margin: 0;
+    padding: 0;
+    font-weight: 550;
+    user-select: none;
+}
+
+/*                  handling the width behaviour                */
+
+/* width behaviour: scrollAll */
+
+.containerScrollAll
+{
+    display: flex;
+    max-width: 100%;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+}
+
+.containerScrollAll *
+{
+    flex-shrink: 0;
+}
+
+/* width behaviour: scrollIndividual */
+
+.containerScrollIndividual 
+{
+    display: inline-flex;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.containerScrollIndividual > .containerSelection 
+{
+    flex: 1;
+    display: flex;
+    overflow-x: scroll;
+}
+
+.containerScrollIndividual *
+{
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* width behaviour: scrollIndividualFillParent */
+
+.containerScrollIndividualFillParent
+{
+    display: inline-flex;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.containerScrollIndividualFillParent > .containerSelection 
+{
+    display: flex;
+    flex: 1;
+    overflow-x: scroll;
+    justify-content: center;
+}
+
+.containerScrollIndividualFillParent *
+{
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* width behaviour: overflow */
+
+.containerOverflow
+{
+    display: inline-flex;
+    flex-shrink: 0;
+}
+
+.containerOverflow *
+{
+    flex-shrink: 0;
+}

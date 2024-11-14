@@ -119,13 +119,299 @@
   }
 },
 {
+  "name": "The Weeknd XO Logo Crewneck",
+  "description": "Premium Fans Based Store. The Weeknd Merch 2024. Free Shipping Worldwide.",
+  "image": "https://pic.surf/mlm",
+  "price": 69.99,
+  "keywords": ["The Weeknd", "Pop", "XOXO", "R&B"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Crewneck",
+    "gender": "unisex",
+    "size": ["M", "L", "XL", "XXL"],
+    "brand": "The Weeknd",
+    "color": "black"
+  }
+},
+{
+  "name": "The Weeknd DAWN FM CHROME TITLE TEE",
+  "description": "Premium Fans Based Store. The Weeknd Merch 2024. Free Shipping Worldwide.",
+  "image": "https://pic.surf/1o",
+  "price": 34.99,
+  "keywords": ["The Weeknd", "Pop", "Dawn FM","R&B"],
+  "category": "Clothes",
+  "additional": {
+    "type": "T-Shirt",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "The Weeknd",
+    "color": "black"
+  }
+},
+{
+  "name": "The Weeknd Brain Melting Pullover Hoodie",
+  "description": "Premium Fans Based Store. The Weeknd Merch 2024. Free Shipping Worldwide.",
+  "image": "https://pic.surf/1z7",
+  "price": 59.99,
+  "keywords": ["The Weeknd", "Pop", "After Hours", "R&B"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Hoodie",
+    "gender": "unisex",
+    "size": ["M", "L", "XL"],
+    "brand": "The Weeknd",
+    "color": "black"
+  }
+},
+{
+  "name": "TTPD Gray Embossed Hoodie",
+  "description": "Gray hoodie with front pocket featuring embossed 'TTPD' album logo on front. Standard unisex fit, tapered hem, 100% cotton.",
+  "image": "https://pic.surf/3qz",
+  "price": 85.00,
+  "keywords": ["Taylor Swift", "Pop", "THE TORTURED POETS DEPARTMENT"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Hoodie",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Taylor Swift",
+    "color": "gray"
+  }
+},
+{
+  "name": "TTPD Gray Embossed Sweatpants",
+  "description": "Gray sweatpants featuring 'TTPD' album logo embossed on wearer's left leg and 'The Tortured Poets Department' printed down wearer's right leg. Drawstring waist, side pockets, and back pocket. Standard unisex fit, 100% cotton. Limit 10 per order. HAND WASH ONLY.",
+  "image": "https://pic.surf/44k",
+  "price": 70.00,
+  "keywords": ["Taylor Swift", "Pop", "THE TORTURED POETS DEPARTMENT"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Sweatpants",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Taylor Swift",
+    "color": "gray"
+  }
+},
+{
+  "name": "The Eras Tour TTPD Live Photo Oversized T-Shirt",
+  "description": "Black oversized t-shirt featuring a photo of Taylor Swift and 'Taylor Swift The Eras Tour' printed on the front, with 'Taylor Swift The Eras Tour', '2023 - 2024', and script design with tour locations printed on the back.",
+  "image": "https://pic.surf/f22",
+  "price": 45.00,
+  "keywords": ["Taylor Swift", "Pop", "THE TORTURED POETS DEPARTMENT"],
+  "category": "Clothes",
+  "additional": {
+    "type": "T-Shirt",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Taylor Swift",
+    "color": "black"
+  }
+},
+{
+  "name": "Nirvana Smiley Tee",
+  "description": "Nirvana Smiley design printed on a black, unisex tee.",
+  "image": "https://pic.surf/5gx",
+  "price": 36.00,
+  "keywords": ["Nirvana", "Rock", "Nevermind", "Alternative"],
+  "category": "Clothes",
+  "additional": {
+    "type": "T-Shirt",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "brand": "Nirvana",
+    "color": "black"
+  }
+},
+{
+  "name": "Smiley Hoodie",
+  "description": "Black pullover hoodie featuring the iconic Nirvana Smiley logo. Includes drawstring hood and kangaroo pocket. Made of 80% cotton and 20% polyester for comfort and durability.",
+  "image": "https://pic.surf/4m5",
+  "price": 64.00,
+  "keywords": ["Nirvana", "Rock", "Nevermind", "Alternative"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Hoodie",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "brand": "Nirvana",
+    "color": "black"
+  }
+},
+{
+  "name": "Smiley Longsleeve",
+  "description": "Black longsleeve shirt featuring Nirvana's iconic Smiley logo printed on the front and back. A classic piece for any Nirvana fan.",
+  "image": "https://pic.surf/r6h",
+  "price": 43.00,
+  "keywords": ["Nirvana", "Rock", "Nevermind", "Alternative"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Longsleeve",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "brand": "Nirvana",
+    "color": "black"
+  }
+},
+{
+  "name": "Justice Tour Hoodie",
+  "description": "Red Tour hoodie. Screenprinted front graphic.",
+  "image": "https://pic.surf/hnu",
+  "price": 75.00,
+  "keywords": ["Justin Bieber", "Pop", "R&B", "Justice"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Hoodie",
+    "gender": "unisex",
+    "size": ["M", "L", "XL"],
+    "brand": "Justin Bieber",
+    "color": "red"
+  }
+},
+{
+  "name": "JUSTICE TIE DYE T-SHIRT",
+  "description": "Due to the custom dye process, each unit will have a slightly different coloration. This unique tie-dye t-shirt features the iconic Justice logo, adding a one-of-a-kind touch to your wardrobe.",
+  "image": "https://pic.surf/m52",
+  "price": 40.00,
+  "keywords": ["Justin Bieber", "Pop", "R&B", "Justice"],
+  "category": "Clothes",
+  "additional": {
+    "type": "T-Shirt",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Justin Bieber",
+    "color": "tie-dye"
+  }
+},
+{
+  "name": "JUSTICE GLOW CREWNECK",
+  "description": "This crewneck sweatshirt features bold front and back screenprinted graphics, making it a standout piece for any fan of Justin Bieber's Justice collection.",
+  "image": "https://pic.surf/fsv",
+  "price": 65.00,
+  "keywords": ["Justin Bieber", "Pop", "R&B", "Justice"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Crewneck",
+    "gender": "unisex",
+    "size": ["M", "L", "XL"],
+    "brand": "Justin Bieber",
+    "color": "black"
+  }
+},
+{
+  "name": "+-=÷× (TOUR COLLECTION) Tie-dye Hoodie",
+  "description": "Originally available on the Mathematics Tour in 2022, this tie-dye hoodie features mathematics symbol print down the right sleeve and chest print.",
+  "image": "https://pic.surf/mj5",
+  "price": 69.99,
+  "keywords": ["Ed Sheeran", "Pop", "x"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Hoodie",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Ed Sheeran",
+    "color": "tie-dye"
+  }
+},
+{
+  "name": "+-=÷× (TOUR COLLECTION) T-Shirt",
+  "description": "Black t-shirt featuring the Mathematics Tour print on the front. Made from 100% cotton (145gsm) for a comfortable, durable fit. Perfect for Ed Sheeran fans who want to showcase their love for the Mathematics Tour.",
+  "image": "https://pic.surf/mmi",
+  "price": 34.99,
+  "keywords": ["Ed Sheeran", "Pop", "x"],
+  "category": "Clothes",
+  "additional": {
+    "type": "T-Shirt",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Ed Sheeran",
+    "color": "black"
+  }
+},
+{
+  "name": "Flower Head Longsleeve T-Shirt",
+  "description": "White long sleeve t-shirt featuring a large sleeve print and a Mathematics flower design on the chest. Made from 100% cotton (200gsm), offering a soft yet sturdy fit. A great way to represent Ed Sheeran's Mathematics Tour.",
+  "image": "https://pic.surf/ul",
+  "price": 49.99,
+  "keywords": ["Ed Sheeran", "Pop", "x"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Longsleeve T-Shirt",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Ed Sheeran",
+    "color": "white"
+  }
+},
+{
+  "name": "GREY 59 HOODIE",
+  "description": "Hoodie made from 50% US cotton and 50% polyester (271 GSM), featuring a front kangaroo pocket and a DTG Skeleton Head graphic on the back. The left chest has the DTG Grey 59 text. For an oversized fit, consider going up one size. Contact us for personalized orders or unavailable sizes.",
+  "image": "https://pic.surf/br8",
+  "price": 57.00,
+  "keywords": ["$uicideboy$", "Hip-Hop", "Rap", "New World Depression"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Hoodie",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Suicideboys",
+    "color": "grey"
+  }
+},
+{
+  "name": "G59 T-shirt",
+  "description": "100% US cotton t-shirt featuring the DTG G59 logo on the left chest. Go up one size for an oversized fit. If your size is unavailable, contact us for assistance.",
+  "image": "https://pic.surf/56e",
+  "price": 25.00,
+  "keywords": ["$uicideboy$", "Hip-Hop", "Rap", "New World Depression"],
+  "category": "Clothes",
+  "additional": {
+    "type": "T-Shirt",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Suicideboys",
+    "color": "black"
+  }
+},
+{
+  "name": "HEARTFELT CREAM HOODIE",
+  "description": "A 100% cotton hoodie in a soft, cozy cream color, designed for comfort and style. Perfect for fans of Chris Brown's music and fashion.",
+  "image": "https://pic.surf/uy2",
+  "price": 120.00,
+  "keywords": ["Chris Brown", "Pop", "Hip-Hop", "R&B"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Hoodie",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Chris Brown",
+    "color": "cream"
+  }
+},
+{
+  "name": "THIS CHRIS-MAS SWEATSHIRT",
+  "description": "A classic fit sweatshirt made from a 50% cotton, 50% polyester blend. Features a 1x1 athletic rib-knit collar with spandex, air-jet spun yarn for a soft feel, and double-needle stitching on the collar, shoulders, armholes, cuffs, and hem.",
+  "image": "https://pic.surf/lu",
+  "price": 76.00,
+  "keywords": ["Chris Brown", "Pop", "Hip-Hop", "R&B"],
+  "category": "Clothes",
+  "additional": {
+    "type": "Sweatshirt",
+    "gender": "unisex",
+    "size": ["S", "M", "L", "XL"],
+    "brand": "Chris Brown",
+    "color": "black"
+  }
+},
+{
     "name": "CD Top Manele 2007",
     "description": "Un album cu cele mai populare manele din anul 2007.",
     "image": "https://pic.surf/xkc",
     "price": 60.00,
     "keywords": ["manele", "Nicolae Guță", "Denisa", "Florin Salam", "Sorinel Puștiul", "Leonard", "Liviu Puștiu", "manele vechi", "Milioane", "Un Sărut Pentru Un Sărut", "Of Iubire", "Numele Meu Să-l Strigați", "Te Cheamă Inima Mea", "Mai Fac Un Pas În Față", "Cine Are În Buzunare", "Cea Mai Dulce Orhidee", "Ce Combinații, Ce Pont", "Lacrimi De Iubire", "Un Inel Cu Piatră", "Ce Greu E Fără Tine"],
-    "category": "CD",
+    "category": "Music",
     "additional": {
+        "type": "CD",
         "songs": [
             "Nicolae Guță–Milioane",
             "Denisa–Un Sărut Pentru Un Sărut",
@@ -149,8 +435,9 @@
     "image": "https://i.discogs.com/RdeJ38Z7duxzW1rdXU8KAv4mEBeEUcPQ9FZyFIlJc-c/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzMzYy/ODA3LTE1NTI3ODA1/MjEtNjcyOS5wbmc.jpeg",
     "price": 55.00,
     "keywords": ["manele", "Nicolae Guță", "Adrian Copilul Minune", "Claudia", "Susanu", "Liviu Guță", "Sorin Copilul De Aur", "Florin Salam", "Daniela Gyorfi", "Dorel de la Popești", "Liviu Puștiu", "Florin Baboi", "Adi De La Vâlcea", "Vali Vijelie", "Cine Mi-A Furat Inima", "Din Vina Ta Am Plans", "Doua Vorbe", "Iar M-Am Imbatat", "Iar Am Gresit", "Doar Ochii Tai", "Voi Pastra Amintirea Ta", "Una Cate Una", "Nu Ma Amagi", "Cheful Chefurilor", "La Miezul Noptii", "Ce Vrei Sa Faci Cu Mine", "Asa Sunt Femeile", "O,O,O", "Sa Vorbim De Iubire", "Boom Shaka Laka"],
-    "category": "CD",
+    "category": "Music",
     "additional": {
+        "type": "CD",
         "songs": [
             "Adrian Copilul Minune Feat. Claudia & Susanu–Cine Mi-A Furat Inima",
             "Nicolae Guță–Din Vina Ta Am Plans",
@@ -178,8 +465,9 @@
     "image": "https://cdn.dc5.ro/img-prod/3088607367-0.jpeg",
     "price": 250.00,
     "keywords": ["metalica", "rock", "Enter Sandman", "Sad But True", "Holier Than Thou", "The Unforgiven", "Wherever I May Roam", "Don't Tread On Me", "Through The Never", "Nothing Else Matters", "Of Wolf And Man", "The God That Failed", "My Friend Of Misery", "The Struggle Within"],
-    "category": "Vinil",
+    "category": "Music",
     "additional": {
+        "type": "Vinyl",
         "songs": [
             "Vinyl 1 Side A: Enter Sandman - 5:29",
             "Sad But True - 5:24",
@@ -203,8 +491,9 @@
     "image": "https://cdn.dc5.ro/img-prod/2330492-0.jpeg",
     "price": 80.00,
     "keywords": ["metalica", "rock", "Battery", "Master Of Puppets", "The Thing That Should Not Be", "Welcome Home", "Disposable Heroes", "Leper Messiah", "Orion", "Damage, Inc."],
-    "category": "CD",
+    "category": "Music",
     "additional": {
+        "type": "CD",
         "songs": [
             "Battery (Remastered 2016) (5:12)",
             "Master Of Puppets (Remastered 2016) (8:35)",
@@ -224,8 +513,9 @@
     "image": "https://muzikercdn.com/uploads/products/4269/426970/main_8ce0f80b.jpg",
     "price": 250.00,
     "keywords": ["Metallica", "Garage Inc.", "albastru transparent", "ediție limitată", "Too Late Too Late", "Stone Dead Forever", "Damage Case", "Overkill", "The Small Hours", "The Wait", "Last Caress", "Green Hell", "Am I Evil?", "Blitzkrieg", "Breadfan", "The Prince"],
-    "category": "Vinil",
+    "category": "Music",
     "additional": {
+        "type": "Vinyl",
         "songs": [
             "LP 1 Side A: Free Speech For The Dumb (2:35)",
             "It's Electric (3:34)",
@@ -264,8 +554,9 @@
     "image": "https://cdn.dc5.ro/img-prod/2103742505-0.jpeg",
     "price": 70.00,
     "keywords": ["metalica", "rock", "72 Seasons", "Shadows Follow", "Screaming Suicide", "Sleepwalk My Life Away", "You Must Burn!", "Lux Æterna", "Crown Of Barbed Wire", "Chasing Light", "If Darkness Had A Son", "Too Far Gone?", "Room Of Mirrors", "Inamorata"],
-    "category": "CD",
+    "category": "Music",
     "additional": {
+        "type": "CD",
         "songs": [
             "72 Seasons (7:39)",
             "Shadows Follow (6:12)",
@@ -289,8 +580,9 @@
     "image": "https://m.media-amazon.com/images/I/71Pgwm3ZRQL._UF1000,1000_QL80_.jpg",
     "price": 90.00,
     "keywords": ["queen", "rock", "Bohemian Rhapsody", "Another One Bites The Dust", "Killer Queen", "Fat Bottomed Girls", "Bicycle Race", "You're My Best Friend", "Don't Stop Me Now", "Save Me", "Crazy Little Thing Called Love", "Somebody To Love", "Now I'm Here", "Good Old-Fashioned Lover Boy", "Play The Game", "Flash", "Seven Seas Of Rhye", "We Will Rock You", "We Are The Champions"],
-    "category": "CD",
+    "category": "Music",
     "additional": {
+        "type": "CD",
         "songs": [
             "Bohemian Rhapsody",
             "Another One Bites The Dust",
@@ -319,8 +611,9 @@
     "image": "https://m.media-amazon.com/images/I/612pfd-N4SL._UF1000,1000_QL80_.jpg",
     "price": 85.00,
     "keywords": ["nirvana", "grunge", "Smells Like Teen Spirit", "In Bloom", "Come as You Are", "Breed", "Lithium", "Polly", "Territorial Pissings", "Drain You", "Lounge Act", "Stay Away", "On a Plain", "Something in the Way"],
-    "category": "CD",
+    "category": "Music",
     "additional": {
+        "type": "CD",
         "songs": [
             "Smells Like Teen Spirit",
             "In Bloom",
@@ -344,8 +637,9 @@
     "image": "https://cdn.dc5.ro/img-prod/3099854221-0.png",
     "price": 120.00,
     "keywords": ["ac/dc", "rock", "Back In Black", "Hells Bells", "Shoot to Thrill", "What Do You Do for Money Honey", "Givin the Dog a Bone", "Let Me Put My Love into You", "Back in Black", "You Shook Me All Night Long", "Have a Drink on Me", "Shake a Leg", "Rock and Roll Ain't Noise Pollution"],
-    "category": "Vinil",
+    "category": "Music",
     "additional": {
+        "type": "Vinyl",
         "songs": [
             "Hells Bells",
             "Shoot to Thrill",

@@ -1,18 +1,14 @@
 import { Product } from "../../Types/Product.type";
 
-export interface ProductCardProps {
-    onClick: () => void;
+export interface ProductViewerProps {
+    onClose: () => void;
     onClickCart: () => void;
     onClickHeart: () => void;
-    product: Product,
+    product: null | Product;
     customizations?: {
-        width?: string;
-        height?: string;
-        background?: string;
         backgroundColorTags?: string;
         foregroundColor?: string;
         backgroundAccent?: string;
         foregroundAccent?: string;
-        shadow?: string;
     };
 }
