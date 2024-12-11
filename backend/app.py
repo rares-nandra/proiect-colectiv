@@ -2,6 +2,8 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from Collections.User import user_bp  # Import user blueprint
 from Collections.Product import products_bp  # Import the products Blueprint
+from Collections.Cart import cart_bp
+from Collections.Favorites import favorites_bp
 
 def create_app():
     app = Flask(__name__)
@@ -14,6 +16,8 @@ def create_app():
 
     app.register_blueprint(user_bp, url_prefix='/auth')
     app.register_blueprint(products_bp)
+    app.register_blueprint(favorites_bp)
+    app.register_blueprint(cart_bp)
 
     @app.route('/ping', methods=['GET'])
     def pong():
