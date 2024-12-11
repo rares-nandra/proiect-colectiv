@@ -3,3 +3,5 @@ pymongo==3.12.1
 flask-cors==3.0.10
 werkzeug>=2.1.0
 pyjwt>=2.1.0
+spotipy>=2.24.0
+python-dotenv>=1.0.1
