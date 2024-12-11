@@ -33,14 +33,6 @@ const AuthSignup: React.FC = () => {
                         <TextInput onChange = {() => {}} customizations = {{backgroundColor: "rgba(0, 0, 0, 0)", foregroundColor: "var(--text-primary", fontSize: "20px"}} />
                     </div>
                 </div>
-
-                <div className = {styles.formSection}>
-                    <p className = {styles.formSectionName}>confirm password</p>
-                    
-                    <div className = {styles.hackyUnderline}>
-                        <TextInput onChange = {() => {}} customizations = {{backgroundColor: "rgba(0, 0, 0, 0)", foregroundColor: "var(--text-primary)", fontSize: "20px"}} />
-                    </div>
-                </div>
             </div>
 
             <div className = {styles.actionContainer}>
