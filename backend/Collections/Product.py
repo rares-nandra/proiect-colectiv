@@ -8,32 +8,45 @@ from utils import product_user_match
 # Initialize the Blueprint for products
 products_bp = Blueprint('products', __name__)
 
-# Initialize MongoDB connection with the "products" collection
-mongo = MongoDB(db_name="SPS", collection_name="products")
+# Initialize MongoDB connections
+mongo_products = MongoDB(db_name="SPS", collection_name="products")
+mongo_users = MongoDB(db_name="SPS", collection_name="users")  # Users collection
+
+
+def authenticate_user(email, password):
+    """Verify if a user exists in the users collection with the provided password."""
+    user_doc = mongo_users.find_by_field("email", email)
+    if user_doc and user_doc.get("password") == password:
+        return True
+    return False
+
+
+@products_bp.before_request
+def check_authentication():
+    """Middleware to check user and password for all routes."""
+    user = request.headers.get('email')  # Get 'user' from headers
+    password = request.headers.get('password')  # Get 'password' from headers
+
+    if not user or not password:
+        return jsonify({"error": "Authentication required"}), 401
+
+    if not authenticate_user(user, password):
+        return jsonify({"error": "Invalid username or password"}), 403
+
 
 @products_bp.route('/products', methods=['GET'])
 def get_all_products():
     """Retrieve all products from the products collection."""
-    products = mongo.find_all()
-
-    #     # id: string;
-    #     # name: string;
-    #     # description: string;
-    #     # imageUrl: string;
-    #     # price: number;
-    #     # category: string;
-    #     # additional: any;
-    #     # matchPercentage: number;
-    #     # keywords: Array<string>;
-
+    products = mongo_products.find_all()
     return jsonify(product_user_match.sort_by_match(products)), 200
+
 
 @products_bp.route('/products/category/<category>', methods=['GET'])
 def get_products_by_genre(category):
-    products = mongo.find_by_field("category", category)
+    products = mongo_products.find_by_field("category", category)
     return jsonify(product_user_match.sort_by_match(products)), 200
 
-#search_products?min_price=60&max_price=70
+
 @products_bp.route('/search_products', methods=['GET'])
 def get_products_by_type():
     min_price = request.args.get('min_price', type=float)
@@ -50,14 +63,14 @@ def get_products_by_type():
         filter_query['price'] = {'$lte': max_price}
 
     # Fetch products matching the filter
-    products = mongo.find(filter_query)
-
+    products = mongo_products.find(filter_query)
     return jsonify(product_user_match.sort_by_match(products)), 200
+
 
 @products_bp.route('/products/<product_id>', methods=['GET'])
 def get_product_by_id(product_id):
     try:
-        product = mongo.find_by_id(product_id)
+        product = mongo_products.find_by_id(product_id)
     except (TypeError, ValueError, bson.errors.InvalidId):
         return jsonify({"error": "Invalid product ID"}), 400
     if product:
