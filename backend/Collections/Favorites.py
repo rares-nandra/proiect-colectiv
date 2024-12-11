@@ -1,16 +1,13 @@
-from json import dumps
-from bson.json_util import dumps
 import bson
 from flask import Blueprint, jsonify, request
-from utils.Mongodb import MongoDB  # Import the MongoDB class
+from utils.Mongodb import MongoDB
 
-# Initialize the Blueprint for favorites
 favorites_bp = Blueprint('favorites', __name__)
 
 # Initialize MongoDB connections
 mongo_products = MongoDB(db_name="SPS", collection_name="products")
 mongo_users = MongoDB(db_name="SPS", collection_name="users")
-mongo_favorites = MongoDB(db_name="SPS", collection_name="favorites")  # Favorites collection
+mongo_favorites = MongoDB(db_name="SPS", collection_name="favorites")
 
 def authenticate_user(email, password):
     """Verify if a user exists in the users collection with the provided password."""
