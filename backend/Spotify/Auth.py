@@ -34,10 +34,8 @@ def callback():
     try:
         token_info = sp_oauth.get_access_token(code)
         access_token = token_info['access_token']
-
-        print(access_token)
         
-        # TODO write access token to DB 
+        # TODO write access token to DB
 
         return jsonify({'message': 'Spotify authentication successful!', 'access_token': access_token})
     except Exception as e:
