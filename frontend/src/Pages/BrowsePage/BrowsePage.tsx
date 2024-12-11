@@ -12,6 +12,7 @@ import Dock from "../../Components/Dock/Dock";
 
 import { FaSearch, FaHeart, FaUserAlt } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa6";
+import BackgroundAnimated from "../../Components/BackgroundAnimated/BackgroundAnimated";
 
 const BrowsePage: React.FC = () => {
     const [products, setProducts] = useState<{ [key: string]: Product }>({});
@@ -68,7 +69,10 @@ const BrowsePage: React.FC = () => {
     return (
         <div className = {styles.container}>
             <div className = {styles.headerContainer}>
-                <img className = {styles.logo} src = {logo} />
+                <div className = {styles.logoContainer}>
+                    <img className = {styles.logo} src = {logo} />
+                    <h1 className = {styles.title}>SPS - shop</h1>
+                </div>
             </div>
 
             <div className = {styles.productsContainer}>
