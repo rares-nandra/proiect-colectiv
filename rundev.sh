@@ -2,6 +2,11 @@
 
 cd "$(dirname "$0")"
 
+echo "Starting MongoDB service..."
+if ! brew services start mongodb-community; then
+    echo "Warning: Failed to start MongoDB. Please ensure it is running manually if needed."
+fi
+
 echo "Installing backend dependencies..."
 if ! pip install -r ./backend/requirements.txt; then
     echo "pip failed, trying pip3..."

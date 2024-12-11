@@ -66,12 +66,12 @@ const BrowsePage: React.FC = () => {
     }, [products, viewedProduct]);
 
     return (
-        <div className={styles.container}>
+        <div className = {styles.container}>
             <div className = {styles.headerContainer}>
                 <img className = {styles.logo} src = {logo} />
             </div>
 
-            <div className={styles.productsContainer}>
+            <div className = {styles.productsContainer}>
                 {Object.values(products).map((product) => (
                     <ProductCard key = {product._id} onClick = {() => {setViewedProduct(product._id)}} onClickCart = {() => {}} onClickHeart = {() => {}} product = {product} customizations = {{ width: "280px", height: "400px", background: "linear-gradient(to bottom right, var(--background-tertiary) 0%, var(--background-secondary) 70%)", foregroundColor: "var(--text-primary)", backgroundAccent: "var(--background-accent)", foregroundAccent: "var(--text-accent)", shadow: "var(--shadow)", backgroundColorTags: "var(--background-tertiary)", }} />
                 ))}

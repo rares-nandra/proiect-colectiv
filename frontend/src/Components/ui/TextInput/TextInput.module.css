@@ -1,0 +1,10 @@
+.textInput
+{
+    padding: 5px;
+    text-align: left;
+    border: none;
+    border-radius: 8px;
+    user-select: none;
+    outline: none;
+    font-weight: 550;
+}

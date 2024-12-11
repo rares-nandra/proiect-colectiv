@@ -4,17 +4,17 @@ from Collections.User import user_bp  # Import user blueprint
 from Collections.Product import products_bp  # Import the products Blueprint
 
 def create_app():
-    # Initialize Flask app
     app = Flask(__name__)
 
-    # Set up CORS to allow requests from localhost:3000
-    CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+    CORS(app, resources={
+        r"/*": {
+            "origins": ["http://localhost:3000", "http://127.0.0.1:3000"]
+        }
+    })
 
-    # Register blueprints
     app.register_blueprint(user_bp, url_prefix='/auth')
     app.register_blueprint(products_bp)
 
-    # Test route
     @app.route('/ping', methods=['GET'])
     def pong():
         data = {
@@ -25,7 +25,6 @@ def create_app():
     return app
 
 
-# Run the app if this file is executed directly
 if __name__ == '__main__':
     app = create_app()
     app.run(host='0.0.0.0', port=5000)
