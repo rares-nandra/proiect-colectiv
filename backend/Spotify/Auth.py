@@ -59,4 +59,3 @@ def callback():
         return jsonify({'message': 'Spotify authentication successful!', 'access_token': access_token}), 200
     except Exception as e:
         return jsonify({'error': f'Failed to authenticate with Spotify: {str(e)}'}), 500
-
