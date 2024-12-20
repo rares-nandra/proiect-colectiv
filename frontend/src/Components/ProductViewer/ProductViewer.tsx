@@ -116,7 +116,7 @@ const ProductViewer: React.FC<ProductViewerProps> = ({ onClose, onClickHeart, pr
     const handleAddToCart = async () => {
         const token = localStorage.getItem("jwt_token");
 
-        const cartRes = await fetch("http://localhost:5000/cart", {
+        const cartRes = await fetch("http://localhost:5001/cart", {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`,
@@ -136,7 +136,7 @@ const ProductViewer: React.FC<ProductViewerProps> = ({ onClose, onClickHeart, pr
 
         const newQuantity = currentQuantity + 1;
 
-        const updateRes = await fetch("http://localhost:5000/cart/update", {
+        const updateRes = await fetch("http://localhost:5001/cart/update", {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`,
