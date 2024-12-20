@@ -22,7 +22,6 @@ def create_app():
             "origins": ["http://localhost:3000", "http://127.0.0.1:3000"]
         }
     })
-
     app.register_blueprint(user_bp, url_prefix='/auth')
     app.register_blueprint(products_bp)
     app.register_blueprint(favorites_bp)
