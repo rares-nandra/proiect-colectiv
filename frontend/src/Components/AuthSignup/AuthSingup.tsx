@@ -5,12 +5,42 @@ import styles from "./AuthSignup.module.css";
 import TextInput from "../ui/TextInput/TextInput";
 import Button from "../ui/Button/Button";
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Simple password complexity: at least 8 chars, 1 letter, 1 number, 1 special char
+const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
 const AuthSignup: React.FC = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [error, setError] = useState<string | null>(null);
 
+    const validateFields = (): boolean => {
+        setError(null);
+
+        // Validate email
+        if (!email.trim()) {
+            setError("Email is required.");
+            return false;
+        } else if (!emailRegex.test(email)) {
+            setError("Please enter a valid email address.");
+            return false;
+        }
+
+        // Validate password complexity
+        if (!password.trim()) {
+            setError("Password is required.");
+            return false;
+        } else if (!passwordRegex.test(password)) {
+            setError("Password must be at least 8 characters, contain one letter, one number, and one special character.");
+            return false;
+        }
+
+        return true;
+    };
+
     const onClickSignup = async () => {
+        if (!validateFields()) return; // Stop if frontend validation fails
+
         try {
             const response = await fetch("http://localhost:5000/auth/register", {
                 method: "POST",
@@ -26,7 +56,8 @@ const AuthSignup: React.FC = () => {
                 window.location.href = "http://localhost:3000/"; // Redirect to home page
             } else {
                 const errorData = await response.json();
-                setError(errorData.msg);
+                // Show user-friendly error message on failure
+                setError(errorData.msg || "The user or password is incorrect.");
             }
         } catch (err) {
             console.error(err);
@@ -45,7 +76,7 @@ const AuthSignup: React.FC = () => {
                     <p className={styles.formSectionName}>email</p>
                     <div className={styles.hackyUnderline}>
                         <TextInput
-                            onChange={(value) => setEmail(value)} // Primește doar valoarea
+                            onChange={(value) => setEmail(value)}
                             customizations={{
                                 backgroundColor: "rgba(0, 0, 0, 0)",
                                 foregroundColor: "var(--text-primary)",
@@ -60,7 +91,7 @@ const AuthSignup: React.FC = () => {
                     <p className={styles.formSectionName}>password</p>
                     <div className={styles.hackyUnderline}>
                         <TextInput
-                            onChange={(value) => setPassword(value)} // Primește doar valoarea
+                            onChange={(value) => setPassword(value)}
                             customizations={{
                                 backgroundColor: "rgba(0, 0, 0, 0)",
                                 foregroundColor: "var(--text-primary)",

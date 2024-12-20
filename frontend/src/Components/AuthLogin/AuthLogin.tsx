@@ -6,6 +6,8 @@ import styles from "./AuthLogin.module.css";
 import TextInput from "../ui/TextInput/TextInput";
 import Button from "../ui/Button/Button";
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const AuthLogin: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -13,7 +15,31 @@ const AuthLogin: React.FC = () => {
 
     const navigate = useNavigate();
 
+    const validateFields = (): boolean => {
+        // Clear previous errors
+        setError("");
+
+        // Check if email is valid
+        if (!email.trim()) {
+            setError("Email is required.");
+            return false;
+        } else if (!emailRegex.test(email)) {
+            setError("Please enter a valid email address.");
+            return false;
+        }
+
+        // Check password not empty
+        if (!password.trim()) {
+            setError("Password is required.");
+            return false;
+        }
+
+        return true;
+    };
+
     const onClickLogin = async () => {
+        if (!validateFields()) return; // stop if frontend validation fails
+
         try {
             const response = await fetch("http://localhost:5000/auth/login", {
                 method: "POST",
@@ -25,7 +51,9 @@ const AuthLogin: React.FC = () => {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.msg || "Login failed");
+                // Show a user-friendly error message
+                setError(errorData.msg || "The user or password is incorrect.");
+                return;
             }
 
             const data = await response.json();
@@ -33,7 +61,7 @@ const AuthLogin: React.FC = () => {
             setError(""); // Clear error messages
             navigate("/"); // Redirect to the home page
         } catch (err: any) {
-            setError(err.message); // Display error message
+            setError("An error occurred. Please try again.");
         }
     };
 
