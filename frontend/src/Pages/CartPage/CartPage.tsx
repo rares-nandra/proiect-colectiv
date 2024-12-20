@@ -11,7 +11,7 @@ const CartPage: React.FC = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("jwt_token");
-        fetch("http://localhost:5000/cart", {
+        fetch("http://localhost:5001/cart", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,

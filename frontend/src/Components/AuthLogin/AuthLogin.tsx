@@ -41,7 +41,7 @@ const AuthLogin: React.FC = () => {
         if (!validateFields()) return; // stop if frontend validation fails
 
         try {
-            const response = await fetch("http://localhost:5000/auth/login", {
+            const response = await fetch("http://localhost:5001/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

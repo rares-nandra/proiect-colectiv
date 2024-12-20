@@ -34,7 +34,7 @@ const FavoritePage: React.FC = () => {
     useEffect(() => {
         const token = localStorage.getItem("jwt_token");
          
-        fetch("http://localhost:5000/auth/validate-token", {
+        fetch("http://localhost:5001/auth/validate-token", {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -53,7 +53,7 @@ const FavoritePage: React.FC = () => {
             navigate("/auth");
         }
     
-        fetch("http://localhost:5000/favorites", {
+        fetch("http://localhost:5001/favorites", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,

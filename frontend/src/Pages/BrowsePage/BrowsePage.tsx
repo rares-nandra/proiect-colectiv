@@ -34,7 +34,7 @@ const BrowsePage: React.FC = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("jwt_token");
-        fetch("http://localhost:5000/auth/validate-token", {
+        fetch("http://localhost:5001/auth/validate-token", {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -53,7 +53,7 @@ const BrowsePage: React.FC = () => {
             navigate("/auth");
         }
     
-        fetch("http://localhost:5000/products", {
+        fetch("http://localhost:5001/products", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -118,8 +118,8 @@ const BrowsePage: React.FC = () => {
     
         const product = products[productId]; // Get the full product object
         const url = product.is_favorite 
-            ? "http://localhost:5000/deleteFavorites" 
-            : "http://localhost:5000/addFavorites";
+            ? "http://localhost:5001/deleteFavorites" 
+            : "http://localhost:5001/addFavorites";
     
         fetch(url, {
             method: "POST",

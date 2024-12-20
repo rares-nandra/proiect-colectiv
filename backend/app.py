@@ -13,11 +13,6 @@ import os
 
 
 def create_app():
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-    env_path = os.path.join(base_dir, '.env')
-    load_dotenv(env_path)
-    set_spotify_auth_obj()
-
     app = Flask(__name__)
     app.config['JWT_SECRET_KEY'] = 'secret-key'
     jwt = JWTManager(app)
@@ -38,5 +33,5 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)
 

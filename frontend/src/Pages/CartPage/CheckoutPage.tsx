@@ -125,7 +125,7 @@ const CheckoutForm: React.FC = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("jwt_token");
-    fetch("http://localhost:5000/cart", {
+    fetch("http://localhost:5001/cart", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -273,7 +273,7 @@ const CheckoutForm: React.FC = () => {
     // Since last step is review, we validate step 2 (payment)
     if (validateFields(2)) {
       const token = localStorage.getItem("jwt_token");
-      fetch("http://localhost:5000/checkout", {
+      fetch("http://localhost:5001/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -297,7 +297,7 @@ const CheckoutForm: React.FC = () => {
   const updateQuantityInDB = (product_id: string, newQuantity: number) => {
     const token = localStorage.getItem("jwt_token");
 
-    fetch("http://localhost:5000/cart/update", {
+    fetch("http://localhost:5001/cart/update", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

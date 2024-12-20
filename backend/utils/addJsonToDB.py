@@ -1,15 +1,15 @@
 import json
 from pymongo import MongoClient
 
-# MongoDB connection
-client = MongoClient("mongodb://localhost:27017/")
-db = client["SPS"]  # replace with your database name
-collection = db["products"]  # replace with your collection name
+# MongoDB connection (use the service name "mongodb" defined in docker-compose.yml)
+client = MongoClient("mongodb://mongodb:27017/")  # Change "localhost" to "mongodb"
+db = client["SPS"]  # Replace with your database name
+collection = db["products"]  # Replace with your collection name
 
 # Load data from file and insert into MongoDB
 def load_json_to_mongodb(filename):
     # Delete all existing documents in the collection
-    collection.delete_many({})  
+    collection.delete_many({})
     print("All existing documents deleted.")
 
     # Load the JSON array from the file and insert each document
@@ -24,5 +24,5 @@ def load_json_to_mongodb(filename):
             print(f"Failed to insert document: {e}")
 
 # Specify your file name
-filename = './db.json'  # replace with your file path
+filename = './utils/db.json'  # Update the path to match your container's structure
 load_json_to_mongodb(filename)

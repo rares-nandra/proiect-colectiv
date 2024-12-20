@@ -42,7 +42,7 @@ const AuthSignup: React.FC = () => {
         if (!validateFields()) return; // Stop if frontend validation fails
 
         try {
-            const response = await fetch("http://localhost:5000/auth/register", {
+            const response = await fetch("http://localhost:5001/auth/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
