@@ -2,6 +2,7 @@ import bson
 from flask import Blueprint, jsonify, request
 from utils.Mongodb import MongoDB
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from datetime import datetime
 
 checkout_bp = Blueprint('checkout', __name__)
 
@@ -26,32 +27,59 @@ def get_cart():
 @checkout_bp.route('/checkout', methods=['POST'])
 @jwt_required()
 def checkout():
-    """Place an order for the items in the cart."""
+    """Place an order for the items in the cart, with validation for all provided fields."""
     user_id = get_jwt_identity()
     data = request.json
 
-    name = data.get("name")
-    address = data.get("address")
-    phone = data.get("phone")
+    # Extract data
+    shipping = data.get("shipping", {})
+    billing = data.get("billing", {})
+    payment = data.get("payment", {})
     payment_method = data.get("paymentMethod")
-    if not all([name, address, phone, payment_method]):
-        return jsonify({"error": "All fields are required"}), 400
 
+    # Define required fields
+    required_shipping_fields = ["fullName", "address", "city", "zipCode", "country", "phone"]
+    required_billing_fields = ["fullName", "address", "city", "zipCode", "country"]
+    required_payment_fields = ["cardNumber", "cardName", "expiryDate", "cvc"]
+    
+    # Validate that paymentMethod is provided
+    if not payment_method:
+        return jsonify({"error": "Payment method is required."}), 400
+
+    # Validate shipping fields
+    for field in required_shipping_fields:
+        if not shipping.get(field):
+            return jsonify({"error": f"Missing required shipping field: {field}"}), 400
+
+    # Validate billing fields
+    for field in required_billing_fields:
+        if not billing.get(field):
+            return jsonify({"error": f"Missing required billing field: {field}"}), 400
+
+    # Validate payment fields
+    for field in required_payment_fields:
+        if not payment.get(field):
+            return jsonify({"error": f"Missing required payment field: {field}"}), 400
+
+    # Additional optional checks:
+    # For example, validate format of expiryDate, cardNumber length, phone format, etc.
+    # These can be implemented as per your business logic, for example:
+    # if len(payment.get("cardNumber")) < 16:
+    #     return jsonify({"error": "Invalid card number. Must be at least 16 digits."}), 400
+
+    # Check the cart items
     cart = mongo_cart.find_one({"user_id": user_id})
     if not cart or "items" not in cart or len(cart["items"]) == 0:
-        return jsonify({"error": "Cart is empty"}), 400
+        return jsonify({"error": "Your cart is empty."}), 400
 
-    billing = data.get("billing")
-    payment = data.get("payment")
+    # Everything is valid, create the order
     order = {
         "user_id": user_id,
         "items": cart["items"],
-        "name": name,
-        "address": address,
-        "phone": phone,
-        "payment_method": payment_method,
+        "shipping": shipping,
         "billing": billing,
         "payment_info": payment,
+        "payment_method": payment_method,
         "status": "pending",
         "created_at": datetime.utcnow()
     }

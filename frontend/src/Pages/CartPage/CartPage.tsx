@@ -51,7 +51,7 @@ const CartPage: React.FC = () => {
                 <div className={styles.buttonRow}>
                     <Button 
                         onClick={() => navigate("/checkout")} 
-                        text="Finalizează Comanda" 
+                        text="Complete Order" 
                         customizations={{backgroundColor:"#88c589", foregroundColor:"#000"}}
                     />
                 </div>

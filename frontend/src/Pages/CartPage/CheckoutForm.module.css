@@ -92,7 +92,7 @@
   border-radius: 4px;
   background: #1e1e1e;
   color: #eeeeee;
-  /* Remove the default spinner for number inputs */
+  /* Remove default spinner */
   -moz-appearance: textfield;
 }
 
@@ -199,4 +199,15 @@
 
 .secondaryButton:hover {
   background: #333333;
+}
+
+/* Error state styles */
+.errorMessage {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.errorInput {
+  border-color: #ff4d4d !important;
 }

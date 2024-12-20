@@ -163,7 +163,7 @@ const ProductViewer: React.FC<ProductViewerProps> = ({ onClose, onClickHeart, pr
         <div className={styles.overlay}>
             {showConfirmMessage && (
                 <div className={styles.confirmMessage}>
-                    Produsul a fost adăugat în coș!
+                    The product has been added to the cart!
                 </div>
             )}
             {isMobile ? (
