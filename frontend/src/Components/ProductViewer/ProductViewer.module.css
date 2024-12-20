@@ -32,3 +32,17 @@
     top: 10px;
     right: 10px;
 }
+
+.confirmMessage {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2a2a2a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 10000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}

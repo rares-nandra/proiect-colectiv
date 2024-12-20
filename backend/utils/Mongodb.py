@@ -34,9 +34,8 @@ class MongoDB:
         """Insert a single document into the collection."""
         return self.collection.insert_one(document).inserted_id
 
-    def update_one(self, query, update_values):
-        """Update a single document in the collection."""
-        return self.collection.update_one(query, {"$set": update_values}).modified_count
+    def update_one(self, query, update_values, upsert=False):
+        return self.collection.update_one(query, update_values, upsert=upsert).modified_count
 
     def delete_one(self, query):
         """Delete a single document from the collection."""

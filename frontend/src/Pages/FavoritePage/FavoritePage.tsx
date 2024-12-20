@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import styles from "./BrowsePage.module.css";
+import styles from "./FavoritePage.module.css";
 
 import logo from "../../Assets/Images/Logo.png";
 
@@ -13,9 +13,9 @@ import Dock from "../../Components/Dock/Dock";
 import { FaSearch, FaHeart, FaUserAlt } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa6";
 import BackgroundAnimated from "../../Components/BackgroundAnimated/BackgroundAnimated";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation} from "react-router-dom";
 
-const BrowsePage: React.FC = () => {
+const FavoritePage: React.FC = () => {
     const [products, setProducts] = useState<{ [key: string]: Product }>({});
     const [viewedProduct, setViewedProduct] = useState<string | null>(null);
     const navigate = useNavigate();
@@ -25,15 +25,15 @@ const BrowsePage: React.FC = () => {
         const routes: { [key: string]: string } = {
             browse: "/",
             favourites: "/favorites",
-            cart: "/cart", 
-            profile: "/profile",
+            cart: "/cart", // Placeholder: Ensure this route exists
+            profile: "/profile", // Placeholder: Ensure this route exists
         };
         navigate(routes[id] || "/");
     };
     
-
     useEffect(() => {
         const token = localStorage.getItem("jwt_token");
+         
         fetch("http://localhost:5000/auth/validate-token", {
             method: "POST",
             headers: {
@@ -46,14 +46,14 @@ const BrowsePage: React.FC = () => {
                 }
             })
             .catch(() => {
-                navigate("/auth"); 
+                navigate("/auth");
             });
 
         if (!token) {
             navigate("/auth");
         }
     
-        fetch("http://localhost:5000/products", {
+        fetch("http://localhost:5000/favorites", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -116,7 +116,7 @@ const BrowsePage: React.FC = () => {
             return;
         }
     
-        const product = products[productId]; // Get the full product object
+        const product = { ...products[productId], is_favorite: true }; // Ensure is_favorite is included
         const url = product.is_favorite 
             ? "http://localhost:5000/deleteFavorites" 
             : "http://localhost:5000/addFavorites";
@@ -132,7 +132,7 @@ const BrowsePage: React.FC = () => {
                     ...product, 
                     is_favorite: true 
                 } 
-            }),
+            }), 
         })
             .then((response) => {
                 if (!response.ok) throw new Error(`Failed to toggle favorite: ${response.status}`);
@@ -147,8 +147,6 @@ const BrowsePage: React.FC = () => {
             .catch((error) => console.error("Error toggling favorite:", error));
     };
     
-    
-
     
 
     return (
@@ -170,7 +168,7 @@ const BrowsePage: React.FC = () => {
         
             <Dock
                 onChange={handleDockChange}
-                activeElementId={location.pathname.includes("browse") ? "" : ""}
+                activeElementId={location.pathname.includes("favorites") ? "favourites" : ""}
                 elements={[
                     { id: "", icon: FaSearch },
                     { id: "favourites", icon: FaHeart },
@@ -182,4 +180,4 @@ const BrowsePage: React.FC = () => {
     );
 };
 
-export default BrowsePage;
+export default FavoritePage;

@@ -8,4 +8,5 @@ export interface Product {
     matchPercentage: number;
     name: string;
     price: number;
+    is_favorite:boolean;
 }

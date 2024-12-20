@@ -1,3 +1,5 @@
+import { StringLiteralType } from "typescript";
+
 export interface TextInputProps {
     onChange: (value: any) => void;
     initialValue?: string;
@@ -9,4 +11,5 @@ export interface TextInputProps {
         height?: number;
         width?: string;
     };
+    type ?: string
 }

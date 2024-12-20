@@ -1,0 +1,202 @@
+.checkoutWrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #eeeeee;
+  position: relative;
+}
+
+.header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.homeLink {
+  color: #88c589;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.homeLink:hover {
+  opacity: 0.8;
+}
+
+.mainTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.cartOverview {
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.cartOverview h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #88c589;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.itemName {
+  flex: 1;
+  font-weight: bold;
+}
+
+.itemPrice {
+  width: 80px;
+  text-align: right;
+}
+
+.quantityContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantityButton {
+  background: #88c589;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantityButton:hover {
+  opacity: 0.9;
+}
+
+.quantityInput {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #1e1e1e;
+  color: #eeeeee;
+  /* Remove the default spinner for number inputs */
+  -moz-appearance: textfield;
+}
+
+.quantityInput::-webkit-inner-spin-button,
+.quantityInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.stepIndicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #aaa;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 5px 0;
+}
+
+.step.activeStep {
+  color: #88c589;
+}
+
+.formSection {
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #88c589;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #eeeeee;
+}
+
+.formGroup input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #1e1e1e;
+  color: #eeeeee;
+}
+
+.formGroup input::placeholder {
+  color: #888;
+}
+
+.formRow {
+  display: flex;
+  gap: 20px;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.primaryButton {
+  background: #88c589;
+  color: #000;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primaryButton:hover {
+  filter: brightness(0.95);
+}
+
+.secondaryButton {
+  background: #2a2a2a;
+  color: #eeeeee;
+  border: 1px solid #333;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  background: #333333;
+}

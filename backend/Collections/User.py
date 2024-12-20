@@ -1,49 +1,47 @@
 from flask import Blueprint, request, jsonify, current_app
+from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, verify_jwt_in_request
 import datetime
+from utils.Mongodb import MongoDB
 
 user_bp = Blueprint('user', __name__)
-
-def get_user_collection():
-    """Access the MongoDB instance via `current_app`."""
-    return current_app.mongo.get_collection('users')
+bcrypt = Bcrypt()
+jwt = JWTManager()
+users_collection = MongoDB(db_name="SPS", collection_name="users")
 
 @user_bp.route('/register', methods=['POST'])
 def register():
-    """Register a new user."""
     data = request.get_json()
-    email = data.get('email')
+    username = data.get('username')
     password = data.get('password')
 
-    if not email or not password:
-        return jsonify({'error': 'Missing required fields'}), 400
+    if users_collection.find_one({'email': username}):
+        return jsonify({"msg": "User already exists"}), 400
 
-    # Check if the user already exists
-    if get_user_collection().find_one({'email': email}):
-        return jsonify({'error': 'User with this email already exists'}), 409
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+    users_collection.insert_one({'email': username, 'password': hashed_password})
+    return jsonify({"msg": "User registered successfully"}), 201
 
-    new_user = {
-        'email': email,
-        'password': password,
-        'created_at': datetime.datetime.utcnow()
-    }
-
-    get_user_collection().insert_one(new_user)
-    return jsonify({'message': 'User registered successfully'}), 201
 
 @user_bp.route('/login', methods=['POST'])
 def login():
-    """Log in a user."""
     data = request.get_json()
-    email = data.get('email')
+    username = data.get('username')
     password = data.get('password')
 
-    if not email or not password:
-        return jsonify({'error': 'Missing email or password'}), 400
+    user = users_collection.find_one({'email': username})
+    if not user or not bcrypt.check_password_hash(user['password'], password):
+        return jsonify({"msg": "Invalid username or password"}), 401
 
-    user = get_user_collection().find_one({'email': email})
+    access_token = create_access_token(identity=username)
+    return jsonify({"access_token": access_token}), 200
 
-    if not user or user['password'] != password:
-        return jsonify({'error': 'Invalid email or password'}), 401
-
-    return jsonify({'message': 'Login successful'}), 200
+@user_bp.route('/validate-token', methods=['POST'])
+@jwt_required()
+def validate_token():
+    try:
+        verify_jwt_in_request()
+        return jsonify({"message": "Token is valid"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 401
 
