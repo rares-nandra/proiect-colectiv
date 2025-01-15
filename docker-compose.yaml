@@ -18,6 +18,7 @@ services:
     environment:
       - MONGO_URI=mongodb://mongodb:27017/SPS
       - FLASK_ENV=development
+      - .env
     volumes:
       - ./backend:/app
     ports:

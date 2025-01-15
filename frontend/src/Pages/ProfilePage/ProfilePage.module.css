@@ -1,0 +1,62 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-primary);
+}
+
+.headerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.logo {
+  width: 120px;  /* Adjust logo size as needed */
+}
+
+.title {
+  font-size: 28px;
+  color: var(--text-primary);
+}
+
+.buttonContainer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.connectButton {
+  padding: 15px 35px;
+  font-size: 18px;
+  background-color: #1db954;  /* Spotify green */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.connectButton:hover {
+  background-color: #1ed760;
+}
+
+.dockContainer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

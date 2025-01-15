@@ -17,6 +17,8 @@ def create_app():
     app.config['JWT_SECRET_KEY'] = 'secret-key'
     jwt = JWTManager(app)
 
+    set_spotify_auth_obj()
+
     CORS(app, resources={
         r"/*": {
             "origins": ["http://localhost:3000", "http://127.0.0.1:3000"]

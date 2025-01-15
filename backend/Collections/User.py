@@ -44,4 +44,3 @@ def validate_token():
         return jsonify({"message": "Token is valid"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 401
-
