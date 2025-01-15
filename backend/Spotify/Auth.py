@@ -1,8 +1,8 @@
-from flask import Flask, redirect, request, Blueprint, jsonify
+from flask import Flask, redirect, request, url_for, Blueprint, jsonify, session
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import os
-from utils.Mongodb import MongoDB
+from utils.Mongodb import MongoDB  # Import the MongoDB class
 
 spotify_auth_bp = Blueprint('spotify-auth', __name__)
 sp_oauth = None
@@ -19,7 +19,7 @@ def set_spotify_auth_obj():
         client_id=SPOTIPY_CLIENT_ID,
         client_secret=SPOTIPY_CLIENT_SECRET,
         redirect_uri=SPOTIPY_REDIRECT_URI,
-        scope="user-top-read playlist-read-private playlist-read-collaborative"
+        scope="user-top-read playlist-read-private playlist-read-collaborative user-read-email"
     )
 
 @spotify_auth_bp.route('/auth', methods=['GET'])
@@ -27,10 +27,9 @@ def login():
     auth_url = sp_oauth.get_authorize_url()
     return redirect(auth_url)
 
-@spotify_auth_bp.route('/callback', methods=['POST'])
+@spotify_auth_bp.route('/token', methods=['GET'])
 def callback():
-    data = request.json  # Get the JSON data from the request
-    code = data.get('code')  # Extract code from JSON
+    code = request.args.get('code')
 
     if not code:
         return jsonify({'error': 'No code provided by Spotify'}), 400
@@ -42,45 +41,27 @@ def callback():
         sp = spotipy.Spotify(auth=access_token)
         user_profile = sp.current_user()
 
-        # Extract profile information
-        profile_data = {
-            "spotify_id": user_profile["id"],
-            "name": user_profile["display_name"],
-            "image_url": user_profile["images"][0]["url"] if user_profile["images"] else None,
-            "access_token": access_token
-        }
+        user_email = user_profile.get('email')
 
-        user_doc = mongo_users.find_by_field("spotify_id", user_profile["id"])
+        if not user_email:
+            return jsonify({'error': 'User email not found from Spotify'}), 404
+
+        session['email'] = user_email
+
+        user_doc = mongo_users.find_by_field("email", user_email)
         if not user_doc:
-            # If the user does not exist, create a new entry
-            mongo_users.insert_one({
-                "spotify_id": user_profile["id"],
-                "spotify_access_token": access_token,
-                "spotify_profile": profile_data
-            })
+            user_doc = {
+                "email": user_email,
+                "access_token": access_token,
+                "name": user_profile.get('display_name'),
+            }
+            mongo_users.insert_one(user_doc)
         else:
             mongo_users.update_one(
-                query={"spotify_id": user_profile["id"]},
-                update={"$set": {
-                    "spotify_access_token": access_token,
-                    "spotify_profile": profile_data
-                }}
+                {"email": user_email},
+                {"$set": {"access_token": access_token}}
             )
 
-        return jsonify({'message': 'Spotify authentication successful!', 'access_token': access_token}), 200
+        return jsonify({'access_token': access_token, 'email': user_email}), 200
     except Exception as e:
         return jsonify({'error': f'Failed to authenticate with Spotify: {str(e)}'}), 500
-
-@spotify_auth_bp.route('/profile', methods=['GET'])
-def profile():
-    token = request.headers.get('Authorization')
-    
-    if not token or not token.startswith("Bearer "):
-        return jsonify({'error': 'Missing or invalid token'}), 401
-
-    token = token.split(" ")[1]
-    user_doc = mongo_users.find_by_field("spotify_access_token", token)
-    if not user_doc:
-        return jsonify({'error': 'User not found or token invalid'}), 404
-
-    return jsonify({'spotifyProfile': user_doc.get("spotify_profile")}), 200

@@ -15,6 +15,7 @@ import os
 def create_app():
     app = Flask(__name__)
     app.config['JWT_SECRET_KEY'] = 'secret-key'
+    app.secret_key = os.urandom(24)
     jwt = JWTManager(app)
 
     set_spotify_auth_obj()
@@ -30,7 +31,6 @@ def create_app():
     app.register_blueprint(checkout_bp)
     app.register_blueprint(spotify_auth_bp, url_prefix='/spotify-auth')
     return app
-
 
 if __name__ == '__main__':
     app = create_app()

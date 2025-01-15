@@ -7,84 +7,25 @@ import logo from "../../Assets/Images/Logo.png";
 
 const ProfilePage: React.FC = () => {
     const navigate = useNavigate();
-    const [userProfile, setUserProfile] = useState<any>(null);
     const [spotifyConnected, setSpotifyConnected] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const token = localStorage.getItem("jwt_token");
+        const spotifyAccessToken = localStorage.getItem("spotify_access_token");
 
-        if (!token) {
-            navigate("/auth");
-            return;
-        }
-
-        fetch("http://localhost:5001/auth/validate-token", {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Invalid token");
-                }
-            })
-            .catch(() => {
-                navigate("/auth");
-            });
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get("code");
-
-        if (code) {
-            fetch("http://localhost:5001/spotify-auth/callback", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify({ code }),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.error) {
-                        console.error("Error:", data.error);
-                    } else {
-                        fetchUserProfile(token);
-                    }
-                })
-                .catch((error) => console.error("Error:", error));
+        console.log("Checking Spotify connection..." + spotifyAccessToken);
+        if (spotifyAccessToken) {
+            console.log("Spotify access token found, user is connected.");
+            setSpotifyConnected(true);
         } else {
-            fetchUserProfile(token);
+            console.log("No Spotify access token found, user is not connected.");
         }
-    }, [navigate]);
 
-    const fetchUserProfile = (token: string) => {
-        setLoading(true);
-        fetch("http://localhost:5001/spotify-auth/profile", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Failed to fetch user profile");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                if (data?.spotifyProfile) {
-                    setUserProfile(data.spotifyProfile);
-                    setSpotifyConnected(true);
-                }
-            })
-            .catch((error) => console.error("Error:", error))
-            .finally(() => setLoading(false));
-    };
+        setLoading(false);
+    }, []);
 
     const handleConnectSpotify = () => {
+        console.log("Redirecting user to Spotify authentication...");
         window.location.href = "http://localhost:5001/spotify-auth/auth";
     };
 
@@ -109,11 +50,10 @@ const ProfilePage: React.FC = () => {
 
             {loading ? (
                 <p>Loading...</p>
-            ) : spotifyConnected && userProfile ? (
+            ) : spotifyConnected ? (
                 <div className={styles.profileContainer}>
-                    <h2>Welcome, {userProfile.name}!</h2>
-                    <img src={userProfile.image_url} alt="Profile" className={styles.profileImage} />
-                    <p>Your Spotify account is connected.</p>
+                    <h2>Your Spotify account is connected!</h2>
+                    <p>You are successfully connected to Spotify.</p>
                 </div>
             ) : (
                 <div className={styles.buttonContainer}>
