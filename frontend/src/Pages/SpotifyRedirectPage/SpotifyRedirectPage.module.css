@@ -1,7 +1,6 @@
 .container
 {
     width: 100vw;
-    min-height: 100vh;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
@@ -43,20 +42,28 @@
     width: 100px;
 }
 
-.productsContainer
+.contentContainer
 {
-    width: calc(100% - 100px);
     display: flex;
-    flex-wrap: wrap;
-    gap: 65px 25px;
-    justify-content: space-around;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, var(--background-tertiary) 0%, var(--background-secondary) 70%);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 50px;
+    box-sizing: border-box;
+    padding: 30px 20px;
+
+    border-radius: 20px;
 }
 
-.noItems
+.content
 {
+    text-align: center;
+    line-height: 50px;
     margin: 0;
     padding: 0;
     color: var(--text-primary);
-    font-size: 20px;
+    font-size: 25px;
 }

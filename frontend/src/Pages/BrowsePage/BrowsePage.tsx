@@ -170,9 +170,9 @@ const BrowsePage: React.FC = () => {
         
             <Dock
                 onChange={handleDockChange}
-                activeElementId={location.pathname.includes("browse") ? "" : ""}
+                activeElementId={"home"}
                 elements={[
-                    { id: "", icon: FaSearch },
+                    { id: "home", icon: FaSearch },
                     { id: "favourites", icon: FaHeart },
                     { id: "cart", icon: FaCartPlus },
                     { id: "profile", icon: FaUserAlt },

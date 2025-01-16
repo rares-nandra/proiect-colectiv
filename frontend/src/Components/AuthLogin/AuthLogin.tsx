@@ -57,7 +57,8 @@ const AuthLogin: React.FC = () => {
             }
 
             const data = await response.json();
-            localStorage.setItem("jwt_token", data.access_token); // Save the JWT token
+            localStorage.setItem("jwt_token", data.access_token);
+            localStorage.setItem("user_email", email);
             setError(""); // Clear error messages
             navigate("/"); // Redirect to the home page
         } catch (err: any) {

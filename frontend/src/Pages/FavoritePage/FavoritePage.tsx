@@ -158,6 +158,12 @@ const FavoritePage: React.FC = () => {
                 </div>
             </div>
 
+            {Object.values(products).length === 0 ? (
+            <p className = {styles.noItems}>
+                No favourite items
+            </p>
+            ) : (<></>)}
+
             <div className = {styles.productsContainer}>
                 {Object.values(products).map((product) => (
                     <ProductCard key = {product._id} onClick = {() => {setViewedProduct(product._id)}} onClickCart = {() => {}} onClickHeart={() => toggleFavorite(product._id)}  product = {product} customizations = {{ width: "280px", height: "400px", background: "linear-gradient(to bottom right, var(--background-tertiary) 0%, var(--background-secondary) 70%)", foregroundColor: "var(--text-primary)", backgroundAccent: "var(--background-accent)", foregroundAccent: "var(--text-accent)", shadow: "var(--shadow)", backgroundColorTags: "var(--background-tertiary)", }} />
@@ -168,9 +174,9 @@ const FavoritePage: React.FC = () => {
         
             <Dock
                 onChange={handleDockChange}
-                activeElementId={location.pathname.includes("favorites") ? "favourites" : ""}
+                activeElementId={"favourites"}
                 elements={[
-                    { id: "", icon: FaSearch },
+                    { id: "home", icon: FaSearch },
                     { id: "favourites", icon: FaHeart },
                     { id: "cart", icon: FaCartPlus },
                     { id: "profile", icon: FaUserAlt },

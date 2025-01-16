@@ -19,21 +19,37 @@ const ProductCard: React.FC<ProductCardProps> = ({ onClick, onClickHeart, onClic
                 boxShadow: customizations?.shadow,
             }}
         >
-            <div
-                title={
-                    "You have a " +
-                    String(product.matchPercentage) +
-                    "% match with this product based on your Spotify music taste"
-                }
-                className={styles.percentage}
-            >
-                <p
-                    className={styles.percentageText}
-                    style={{ color: customizations?.foregroundColor }}
+            {product.matchPercentage === -1 ? (
+                <div
+                    title={
+                        "You need to authentificate with Spotify in the profile secrtion in order to get the match between you and the product"
+                    }
+                    className={styles.percentage}
                 >
-                    {product.matchPercentage}%
-                </p>
-            </div>
+                    <p
+                        className={styles.percentageText}
+                        style={{ color: customizations?.foregroundColor }}
+                    >
+                        No match
+                    </p>
+                </div>
+            ) : (
+                <div
+                    title={
+                        "You have a " +
+                        String(product.matchPercentage) +
+                        "% match with this product based on your Spotify music taste"
+                    }
+                    className={styles.percentage}
+                >
+                    <p
+                        className={styles.percentageText}
+                        style={{ color: customizations?.foregroundColor }}
+                    >
+                        {product.matchPercentage}%
+                    </p>
+                </div>
+            )}
 
             <div className={styles.favourite}>
                 <Button
