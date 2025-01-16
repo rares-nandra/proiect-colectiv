@@ -15,7 +15,6 @@ mongo_users = MongoDB(db_name="SPS", collection_name="users")  # Users collectio
 mongo_favorites = MongoDB(db_name="SPS", collection_name="favorites")  # Favorites collection
 
 
-
 @products_bp.route('/products', methods=['GET'])
 @jwt_required()
 def get_all_products():
@@ -29,21 +28,39 @@ def get_all_products():
     for product in products:
         product['is_favorite'] = product['_id'] in favorite_product_ids
 
-    return jsonify(product_user_match.sort_by_match(products)), 200
+    user_doc = mongo_users.find_by_field("email", user_id)
+
+    if isinstance(user_doc, list) and len(user_doc) > 0:
+        music_taste = user_doc[0].get('music_taste', [])
+    else:
+        music_taste = None
+
+    return jsonify(product_user_match.sort_by_match(products, music_taste)), 200
 
 
 @products_bp.route('/products/category/<category>', methods=['GET'])
 @jwt_required()
 def get_products_by_category(category):
     user_id = get_jwt_identity()
+    
     favorites_doc = mongo_favorites.find_one({"user_id": user_id})
     favorite_product_ids = {fav['_id'] for fav in favorites_doc['favorites']} if favorites_doc else set()
 
     products = mongo_products.find_by_field("category", category)
+    
+    user_doc = mongo_users.find_by_field("email", user_id)
+
+    if isinstance(user_doc, list) and len(user_doc) > 0:
+        music_taste = user_doc[0].get('music_taste', [])
+    else:
+        music_taste = None
+
     for product in products:
         product['is_favorite'] = product['_id'] in favorite_product_ids
 
-    return jsonify(product_user_match.sort_by_match(products)), 200
+    sorted_products = product_user_match.sort_by_match(products, music_taste)
+
+    return jsonify(sorted_products), 200
 
 
 
@@ -65,10 +82,19 @@ def get_products_by_type():
         filter_query['price'] = {'$lte': max_price}
 
     products = mongo_products.find(filter_query)
+
     for product in products:
         product['is_favorite'] = product['_id'] in favorite_product_ids
 
-    return jsonify(product_user_match.sort_by_match(products)), 200
+    user_doc = mongo_users.find_by_field("email", user_id)
+
+    if isinstance(user_doc, list) and len(user_doc) > 0:
+        music_taste = user_doc[0].get('music_taste', [])
+    else:
+        music_taste = None
+
+
+    return jsonify(product_user_match.sort_by_match(products, music_taste)), 200
 
 
 @products_bp.route('/products/<product_id>', methods=['GET'])
@@ -81,6 +107,7 @@ def get_product_by_id(product_id):
 
     try:
         product = mongo_products.find_by_id(product_id)
+        
         if product:
             product['is_favorite'] = product['_id'] in favorite_product_ids
             return jsonify(product), 200

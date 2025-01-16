@@ -6,16 +6,20 @@ from Collections.Product import products_bp
 from Collections.Cart import checkout_bp
 from Collections.Favorites import favorites_bp
 from Spotify.Auth import spotify_auth_bp, set_spotify_auth_obj
+from Spotify.MusicTaste import spotify_bp, set_spotify_obj
 from flask_jwt_extended import JWTManager
 
 from dotenv import load_dotenv
 import os
 
-
 def create_app():
     app = Flask(__name__)
     app.config['JWT_SECRET_KEY'] = 'secret-key'
     jwt = JWTManager(app)
+
+    load_dotenv()
+    set_spotify_auth_obj()
+    set_spotify_obj()
 
     CORS(app, resources={
         r"/*": {
@@ -27,6 +31,7 @@ def create_app():
     app.register_blueprint(favorites_bp)
     app.register_blueprint(checkout_bp)
     app.register_blueprint(spotify_auth_bp, url_prefix='/spotify-auth')
+    app.register_blueprint(spotify_bp, url_prefix='/spotify')
     return app
 
 

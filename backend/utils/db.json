@@ -3,7 +3,7 @@
   "description": "A simple logo goes a long way.",
   "image": "https://pic.surf/1lv",
   "price": 32.99,
-  "keywords": ["Metallica", "Rock", "Metal", "Ride the Lightning"],
+  "keywords": ["Metallica", "rock", "metal", "Ride the Lightning"],
   "category": "Clothes",
   "additional": {
     "type": "T-shirt",
@@ -18,7 +18,7 @@
   "description": "Scary Guy: \"Little, yellow, different.\"",
   "image": "https://pic.surf/4cx",
   "price": 39.99,
-  "keywords": ["Metallica", "Rock", "Metal", "Death Magnetic"],
+  "keywords": ["Metallica", "rock", "metal", "Death Magnetic"],
   "category": "Clothes",
   "additional": {
     "type": "Long-sleeve",
@@ -33,7 +33,7 @@
   "description": "MASSSTEEERRRRAHHHH!",
   "image": "https://pic.surf/xn",
   "price": 34.99,
-  "keywords": ["Metallica", "Rock", "Metal", "Master of Puppets"],
+  "keywords": ["Metallica", "rock", "metal", "Master of Puppets"],
   "category": "Clothes",
   "additional": {
     "type": "T-shirt",
@@ -48,7 +48,7 @@
   "description": "Holiday T-Shirt features skulls of the band wearing Santa hats overlaying the iconic bullet logo with mistletoes and snow. Back features what will become your favorite greeting this holiday season... Merry F'N Christmas! Design is printed on a forest green t-shirt.",
   "image": "https://pic.surf/h0n",
   "price": 30.00,
-  "keywords": ["Guns N' Roses", "Rock", "Metal", "Appetite for Destruction"],
+  "keywords": ["Guns N' Roses", "rock", "metal", "Appetite for Destruction"],
   "category": "Clothes",
   "additional": {
     "type": "T-shirt",
@@ -63,7 +63,7 @@
   "description": "Skull Rose Black Hoodie features GNR and rose design printed on the front with a skull printed along the left sleeve. Large GUNS N' ROSES design is printed on the back of this black pullover hoodie.",
   "image": "https://pic.surf/pef",
   "price": 60.00,
-  "keywords": ["Guns N' Roses", "Rock", "Metal", "Use Your Illusion"],
+  "keywords": ["Guns N' Roses", "rock", "metal", "Use Your Illusion"],
   "category": "Clothes",
   "additional": {
     "type": "Hoodie",
@@ -78,7 +78,7 @@
   "description": "Skull Rose Black Shorts feature GUNS N' ROSES with skull and rose design printed on the left thigh. Adjustable drawstrings.",
   "image": "https://pic.surf/388",
   "price": 55.00,
-  "keywords": ["Guns N' Roses", "Rock", "Metal", "Lies"],
+  "keywords": ["Guns N' Roses", "rock", "metal", "Lies"],
   "category": "Clothes",
   "additional": {
     "type": "Shorts",
@@ -93,7 +93,7 @@
   "description": "ITEM IS A PRE-ORDER AND SHIPS IN DECEMBER. Printed front graphics. Custom cut & sew garment. Enzyme washed heavyweight shorts. Unisex fit.",
   "image": "https://pic.surf/zur",
   "price": 65.00,
-  "keywords": ["Future", "Rap", "Hip-Hop", "Pluto"],
+  "keywords": ["Future", "rap", "hip hop", "Pluto"],
   "category": "Clothes",
   "additional": {
     "type": "Shorts",
@@ -108,7 +108,7 @@
   "description": "ITEM IS A PRE-ORDER AND SHIPS IN NOVEMBER. Screen printed front + back graphics. 100% cotton heavyweight hoodie. Unisex fit.",
   "image": "https://pic.surf/i5",
   "price": 125.00,
-  "keywords": ["Future", "Rap", "Hip-Hop", "HNDRXX"],
+  "keywords": ["Future", "rap", "hip hop", "HNDRXX"],
   "category": "Clothes",
   "additional": {
     "type": "Hoodie",
@@ -213,7 +213,7 @@
   "description": "Nirvana Smiley design printed on a black, unisex tee.",
   "image": "https://pic.surf/5gx",
   "price": 36.00,
-  "keywords": ["Nirvana", "Rock", "Nevermind", "Alternative"],
+  "keywords": ["Nirvana", "rock", "Nevermind", "Alternative"],
   "category": "Clothes",
   "additional": {
     "type": "T-Shirt",
@@ -228,7 +228,7 @@
   "description": "Black pullover hoodie featuring the iconic Nirvana Smiley logo. Includes drawstring hood and kangaroo pocket. Made of 80% cotton and 20% polyester for comfort and durability.",
   "image": "https://pic.surf/4m5",
   "price": 64.00,
-  "keywords": ["Nirvana", "Rock", "Nevermind", "Alternative"],
+  "keywords": ["Nirvana", "rock", "Nevermind", "Alternative"],
   "category": "Clothes",
   "additional": {
     "type": "Hoodie",
@@ -243,7 +243,7 @@
   "description": "Black longsleeve shirt featuring Nirvana's iconic Smiley logo printed on the front and back. A classic piece for any Nirvana fan.",
   "image": "https://pic.surf/r6h",
   "price": 43.00,
-  "keywords": ["Nirvana", "Rock", "Nevermind", "Alternative"],
+  "keywords": ["Nirvana", "rock", "Nevermind", "Alternative"],
   "category": "Clothes",
   "additional": {
     "type": "Longsleeve",
@@ -348,7 +348,7 @@
   "description": "Hoodie made from 50% US cotton and 50% polyester (271 GSM), featuring a front kangaroo pocket and a DTG Skeleton Head graphic on the back. The left chest has the DTG Grey 59 text. For an oversized fit, consider going up one size. Contact us for personalized orders or unavailable sizes.",
   "image": "https://pic.surf/br8",
   "price": 57.00,
-  "keywords": ["$uicideboy$", "Hip-Hop", "Rap", "New World Depression"],
+  "keywords": ["$uicideboy$", "underground hip hop", "New World Depression"],
   "category": "Clothes",
   "additional": {
     "type": "Hoodie",
@@ -363,7 +363,7 @@
   "description": "100% US cotton t-shirt featuring the DTG G59 logo on the left chest. Go up one size for an oversized fit. If your size is unavailable, contact us for assistance.",
   "image": "https://pic.surf/56e",
   "price": 25.00,
-  "keywords": ["$uicideboy$", "Hip-Hop", "Rap", "New World Depression"],
+  "keywords": ["$uicideboy$", "underground hip hop", "New World Depression"],
   "category": "Clothes",
   "additional": {
     "type": "T-Shirt",
@@ -653,6 +653,36 @@
             "Rock and Roll Ain't Noise Pollution"
         ],
         "release-year": "1980"
+    }
+},
+{
+    "name": "Lil Peep Hellboy sweatshirt",
+    "description": "Lil peep Hellboy album sweatshirt",
+    "image": "https://i.ibb.co/3cnmzgS/Peep24-1-1080x.webp",
+    "price": 45.5,
+    "keywords": ["Lil Peep", "Hellboy", "Hip-Hop", "emo rap"],
+    "category": "Clothes",
+    "additional": {
+        "type": "Sweatshirt",
+        "gender": "unisex",
+        "size": ["S", "M", "L", "XL"],
+        "brand": "Lil Peep",
+        "color": "black"
+    }
+},
+{
+    "name": "Lil Peep T-Shirt",
+    "description": "Print T-Shirt with the name of the artist Lil Peep",
+    "image": "https://i.ibb.co/ng6gzfm/Peep11-1-1080x.webp",
+    "price": 76.00,
+    "keywords": ["Lil Peep", " emo rap"],
+    "category": "Clothes",
+    "additional": {
+        "type": "T-Shirt",
+        "gender": "unisex",
+        "size": ["S", "M", "L", "XL"],
+        "brand": "Lil Peep",
+        "color": "black"
     }
 }
 ]
